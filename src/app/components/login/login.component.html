@@ -1,0 +1,60 @@
+<section class="text-center">
+    <div class="p-5 bg-image" style="
+          background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+          height: 300px;
+          "></div>
+
+
+    <div class="card shadow-12-strong " style="
+          margin-top: -100px;
+          margin-left: 500px;
+          width: 800px;                  
+          background: hsla(218, 64%, 92%, 0.8);
+          backdrop-filter: blur(30px);
+          ">
+        <div class="card-body py-5 px-md-5">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-5">Login Page</h2>
+                    <form [formGroup]="formGroup">
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="userId">UserId</label>
+                            <input type="text" id="userId" name="userId" formControlName="userId" class="form-control"
+                                placeholder="Enter your UserId" />
+                        </div>
+
+                        <div *ngIf="submitted && f['userId'].errors">
+                            <div class="error text-danger">
+                                 userId is mandatory
+                            </div>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="password">Password</label>
+                            <input type="password" id="password" name="password" formControlName="password"
+                                class="form-control" placeholder="enter your password" />
+                        </div>
+                        <div *ngIf="submitted && f['password'].errors">
+                            <div class="error text-danger">
+                                 password is mandatory
+                            </div>
+                        </div>
+
+                        <div class="container" style=" height: 40px;">
+                            <span class="psw">Forgot <a href="#">password?</a></span>
+                        </div>
+                        <button (click)="UserLogin()" type="submit" class="btn btn-primary btn-block mb-4">
+                            Login
+                        </button>
+                        <div class="text-center ">
+                            <a class="text-center mr-5" routerLink="signup"><span
+                                    class="fa fa-edit fa-fw"></span>register a new user</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
