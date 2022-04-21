@@ -18,23 +18,37 @@
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
           <h2 class="fw-bold mb-5">Sign up now</h2>
-          <form>
+          <form [formGroup]="formGroup"> 
             <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example3">UserId</label>
-              <input type="email" id="form3Example3" class="form-control" placeholder="Enter your UserId" />
+              <label class="form-label" for="userID">UserId</label>
+              <input type="email" id="userID" class="form-control" name="userId" formControlName="userId" placeholder="Enter your UserId" />
             </div>
+            <div *ngIf="submitted && f['userId'].errors">
+              <div class="error text-danger">
+                   userId is mandatory
+              </div>
+          </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="password">Password</label>
+              <input type="password" id="password" class="form-control" formControlName="password" placeholder="enter your password" />
+            </div>
+            <div *ngIf="submitted && f['password'].errors">
+              <div class="error text-danger">
+                   password is mandatory
+              </div>
+          </div>
 
             <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example4">Password</label>
-              <input type="password" id="form3Example4" class="form-control" placeholder="enter your password" />
+              <label class="form-label" for="mobile">Mobile No.</label>
+              <input type="email" id="mobile" name="mobile" class="form-control" formControlName="mobile" placeholder="enter your mobile number" />
             </div>
+            <div *ngIf="submitted && f['mobile'].errors">
+              <div class="error text-danger">
+                   Mobile no. is mandatory
+              </div>
+          </div>
 
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example3">Mobile No.</label>
-              <input type="email" id="form3Example3" class="form-control" placeholder="enter your mobile number" />
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block mb-4">
+            <button type="submit" (click)="addUser()" class="btn btn-primary btn-block mb-4">
               Sign up
             </button>
 

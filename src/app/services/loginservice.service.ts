@@ -13,4 +13,12 @@ export class LoginserviceService {
     return this.http.post<any>('http://localhost:9005/api/ex/user/user_login', data);
   }
 
+  resetPassword(data: any): Observable<any>{
+    return this.http.post<any>('http://localhost:9005/api/ex/user/reset_password ', data);
+  }
+  updatePassword(data: any): Observable<any>{
+    return this.http.put<any>('http://localhost:9005/api/ex/user/update_password', data);
+  }
+  
+
 }
